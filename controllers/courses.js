@@ -8,7 +8,7 @@ const Course = require('../models/Course');
 // @route GET /api/v1/bootcamps/:bootcampId/courses
 // @access Public
 exports.getCourses = asyncHandler(async (req, res, next) => {
-  if (req.param.bootcampId) {
+  if (req.params.bootcampId) {
     const courses = await Course.find({ bootcamp: req.params.bootcampId });
     res.status(200).json({ success: true, count: courses.length, data: courses });
   } else {
